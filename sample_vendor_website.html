@@ -21,13 +21,20 @@
         <!-- End Google Tag Manager -->
         <script>
         window.addEventListener('message', function (e) {
-            console.log('RECEIVED MESSAGE: ' + e.data);
-            const data = JSON.parse(e.data);
-            window.dataLayer = window.dataLayer || [];
-            dataLayer.push({
-              'event' : 'bookingkit_checkout_event',
-              'title' : data.title
-            });
+            console.log('RECEIVED MESSAGE FROM IFRAME: ' + e.data);
+            let messageData;
+            try {
+                messageData = JSON.parse(e.data);   
+            }
+            catch(error) {
+            }
+            if (messageData && messageData.event && messageData.event == 'bookingkit_checkout_event') {
+                window.dataLayer = window.dataLayer || [];
+                dataLayer.push({
+                  'event' : 'bookingkit_checkout_event',
+                  'page_title' : data.page_title
+                });
+            }
         });
         </script>
         <title>Sample vendor's website</title>
