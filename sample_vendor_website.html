@@ -24,7 +24,7 @@
             const data = JSON.parse(e.data);
             window.dataLayer = window.dataLayer || [];
             dataLayer.push({
-              'event' : 'bookingkit_checkout_event'.
+              'event' : 'bookingkit_checkout_event',
               'title' : data.title
             });
             console.log('RECEIVED MESSAGE: ' + data);
