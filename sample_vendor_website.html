@@ -21,13 +21,13 @@
         <!-- End Google Tag Manager -->
         <script>
         window.addEventListener('message', function (e) {
+            console.log('RECEIVED MESSAGE: ' + e.data);
             const data = JSON.parse(e.data);
             window.dataLayer = window.dataLayer || [];
             dataLayer.push({
               'event' : 'bookingkit_checkout_event',
               'title' : data.title
             });
-            console.log('RECEIVED MESSAGE: ' + data);
         });
         </script>
         <title>Sample vendor's website</title>
