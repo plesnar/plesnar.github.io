@@ -25,15 +25,11 @@
             let messageData;
             try {
                 messageData = JSON.parse(e.data);   
+                if (messageData && messageData.event) {
+                window.dataLayer = window.dataLayer || [];
+                dataLayer.push(messageData);
             }
             catch(error) {
-            }
-            if (messageData && messageData.event && messageData.event == 'bookingkit_checkout_event') {
-                window.dataLayer = window.dataLayer || [];
-                dataLayer.push({
-                  'event' : 'bookingkit_checkout_event',
-                  'page_title' : messageData.page_title
-                });
             }
         });
         </script>
