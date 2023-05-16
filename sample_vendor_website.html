@@ -21,9 +21,9 @@
         <!-- End Google Tag Manager -->
         <script>
         window.addEventListener('message', function (e) {
-            let messageData;
             try {
-                messageData = JSON.parse(e.data); 
+                let messageData = JSON.parse(e.data); 
+                console.log(messageData);
                 if (messageData && messageData.event_source && messageData.event_source == 'bookingkit_widget') {
                     window.dataLayer = window.dataLayer || [];
                     dataLayer.push(messageData);
