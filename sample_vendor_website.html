@@ -27,7 +27,7 @@
                 var messageData = JSON.parse(e.data); 
                 if (messageData && messageData.event_source && messageData.event_source == 'bookingkit_widget') {
                     window.dataLayer = window.dataLayer || [];
-                    dataLayer.push(messageData.event);
+                    dataLayer.push(messageData);
                 }
             }
             catch(error) {
