@@ -25,11 +25,13 @@
                 let messageData = JSON.parse(e.data); 
                 console.log(messageData);
                 if (messageData && messageData.event_source && messageData.event_source == 'bookingkit_widget') {
+                    console.log('pushing event to datalayer');
                     window.dataLayer = window.dataLayer || [];
                     dataLayer.push(messageData);
                 }
             }
             catch(error) {
+                console.error(error);
             }
         });
         </script>
