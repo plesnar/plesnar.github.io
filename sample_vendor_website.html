@@ -24,6 +24,7 @@
             try {
                 let messageData = JSON.parse(e.data); 
                 if (messageData && messageData.event_source && messageData.event_source == 'bookingkit_widget') {
+                    console.log(messageData);
                     gtag('event', messageData.event, messageData.event_data);
                     //window.dataLayer = window.dataLayer || [];
                     //dataLayer.push(messageData);
