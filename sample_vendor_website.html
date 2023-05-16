@@ -24,15 +24,13 @@
         <script>             
         window.addEventListener('message', function (e) {
             try {
-                let messageData = JSON.parse(e.data); 
+                var messageData = JSON.parse(e.data); 
                 if (messageData && messageData.event_source && messageData.event_source == 'bookingkit_widget') {
-                    console.log(messageData);
                     window.dataLayer = window.dataLayer || [];
-                    dataLayer.push('event', messageData.event, messageData.event_data);
+                    dataLayer.push(messageData.event);
                 }
             }
             catch(error) {
-                console.error(error);
             }
         });
         </script>
